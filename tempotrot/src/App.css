@@ -1,3 +1,11 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Ensures the entire page has the same background */
+  height: 100%; /* Ensures the background covers the whole page vertically */
+}
+
 .App {
   text-align: center;
 }
@@ -9,7 +17,7 @@
 
 .App-header {
   background-color: #000000;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
