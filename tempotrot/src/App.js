@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.png';
 import './App.css';
+import SearchPage from './pages/Search';
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Welcome to TempoTrot!</p>
-        <p>🚧 Coming soon... 🚧</p>
+        <SearchPage></SearchPage>
       </header>
     </div>
   );
