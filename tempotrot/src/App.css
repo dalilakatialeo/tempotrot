@@ -2,8 +2,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #000000; /* Ensures the entire page has the same background */
-  height: 100%; /* Ensures the background covers the whole page vertically */
+  background-color: #000000;
+  height: 100%;
 }
 
 .App {
