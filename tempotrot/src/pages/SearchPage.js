@@ -6,7 +6,9 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import searchPageStyles from '../style/searchPageStyles';
 
 /* eslint-disable-next-line no-undef */
-const SPOTIFY_ACCESS_TOKEN = process.env.REACT_APP_SPOTIFY_ACCESS_TOKEN;
+const SPOTIFY_CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+const SPOTIFY_CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+
 function SearchPage() {
   const navigate = useNavigate();
 
@@ -43,9 +45,23 @@ function SearchPage() {
     }
   };
 
+  const refreshToken = async () => {
+    const response = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: `grant_type=client_credentials&client_id=${SPOTIFY_CLIENT_ID}&client_secret=${SPOTIFY_CLIENT_SECRET}`
+    });
+
+    const data = await response.json();
+    return data.access_token;
+  };
+
   const fetchTrackId = async (song, artist) => {
+    //Ensure we have a valid access token
+    const accessToken = await refreshToken();
     const query = encodeURIComponent(`track:${song} artist:${artist}`);
-    const accessToken = SPOTIFY_ACCESS_TOKEN;
     const headers = {
       Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json'
@@ -68,7 +84,8 @@ function SearchPage() {
   };
 
   const fetchTrackBpm = async (trackId) => {
-    const accessToken = SPOTIFY_ACCESS_TOKEN;
+    // Ensure you have a valid access token
+    const accessToken = await refreshToken();
     const headers = {
       Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json'
