@@ -24,9 +24,7 @@ function SearchPage() {
     if (event.key === 'Enter' || event.type === 'click') {
       event.preventDefault();
       if (!songInput.trim()) {
-        setErrorMessage(
-          'Please enter a song and artist in the format "song - artist".'
-        );
+        setErrorMessage('Please enter a song!');
         setTimeout(() => {
           setErrorMessage('');
         }, 2000);
@@ -127,7 +125,7 @@ function SearchPage() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: 'column',
           alignItems: 'center',
           width: '40%'
         }}
@@ -145,11 +143,19 @@ function SearchPage() {
           onKeyDown={handleSubmit}
           sx={searchPageStyles.textField}
         />
+        {errorMessage && (
+          <div
+            style={{ color: '#f000d4', marginTop: '5%', fontSize: '0.8rem' }}
+          >
+            {errorMessage}
+          </div>
+        )}
 
         <Button
           variant="contained"
           onClick={handleSubmit}
           sx={{
+            mt: 5,
             ml: 2,
             height: 'flex-end',
             backgroundColor: '#05b6d4',
@@ -161,11 +167,6 @@ function SearchPage() {
           <ArrowForwardIcon />
         </Button>
       </Box>
-      {errorMessage && (
-        <div style={{ color: '#f000d4', marginTop: '5%', fontSize: '1rem' }}>
-          {errorMessage}
-        </div>
-      )}
     </Box>
   );
 }
