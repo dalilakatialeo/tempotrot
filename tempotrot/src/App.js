@@ -1,16 +1,32 @@
 import React from 'react';
-import logo from './logo.png';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import './App.css';
+import WelcomeComponent from './components/welcome.js';
+import SearchPage from './pages/SearchPage';
+import BPMResultsPage from './pages/BPMResultsPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Welcome to TempoTrot!</p>
-        <p>🚧 Coming soon... 🚧</p>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <WelcomeComponent />
+                  <SearchPage />
+                </>
+              }
+              exact
+            />
+            <Route path="/bpm-results" element={<BPMResultsPage />} />
+          </Routes>
+        </header>
+      </div>
+    </Router>
   );
 }
 
