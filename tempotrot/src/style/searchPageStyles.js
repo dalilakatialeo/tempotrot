@@ -1,37 +1,36 @@
-// SearchPageStyles.js
 const searchPageStyles = {
   textField: {
     width: '200%',
-    my: 0, // Reset the default top and bottom margin
-    mt: 'auto', // Automatically adjust the top margin
-    mb: 'auto', // Automatically adjust the bottom margin
+    my: 0,
+    mt: 'auto',
+    mb: 'auto',
     '& label.Mui-focused': {
-      color: 'white',
+      color: 'white'
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: 'white',
+      borderBottomColor: 'white'
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'white',
+        borderColor: 'white'
       },
       '&:hover fieldset': {
-        borderColor: 'white',
+        borderColor: 'white'
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'white',
-      },
+        borderColor: 'white'
+      }
     },
     '.MuiInputLabel-root': {
       color: 'white',
       '&.Mui-focused': {
-        color: 'white',
-      },
+        color: 'white'
+      }
     },
     '.MuiInputBase-input': {
-      color: 'white',
-    },
-  },
+      color: 'white'
+    }
+  }
 };
 
 export default searchPageStyles;
