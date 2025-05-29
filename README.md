@@ -1,7 +1,6 @@
-# tempotrot
-
 # TempoTrot
-**Run to the rhythm. Stay on pace** 🎵🏃‍♀️🏃‍♂️
+
+## Run to the rhythm. Stay on pace 🎵🏃‍♀️🏃‍♂️
 
 *TempoTrot* is your personal running playlist assistant, powered by your own Spotify library. 🎧✨
 Whether you're training for a marathon or just getting your daily jog in, TempoTrot helps you:
